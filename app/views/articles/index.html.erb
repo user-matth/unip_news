@@ -11,7 +11,7 @@
         <h3 class="pb-4 mb-4 fst-italic border-bottom serif">
             Últimas Notícias
         </h3>
-        <%= link_to "Novo Artigo", new_article_path, :class => 'btn btn-primary btn-sm px-3' %>
+        <%= link_to "Novo Artigo", new_article_path, :class => 'btn btn-primary btn-sm px-3' if user_signed_in? %>
         <%= render @articles %>
         <%= render 'pagination' %>
     </div>

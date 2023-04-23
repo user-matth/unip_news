@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2 class="serif fw-bold">Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
@@ -10,13 +10,27 @@
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
+    <div class="accordion accordion-flush mb-2" id="accordionFlushExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed p-0 shadow-none bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            Change password?
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            <%= f.input :password,
+                        hint: "leave it blank if you don't want to change it",
+                        required: false,
+                        input_html: { autocomplete: "new-password" } %>
+            <%= f.input :password_confirmation,
+                        required: false,
+                        input_html: { autocomplete: "new-password" } %>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <%= f.input :current_password,
                 hint: "we need your current password to confirm your changes",
                 required: true,
@@ -24,12 +38,14 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "Update", :class => "btn btn-dark px-3 float-end" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3 class="serif fw-bold">Cancel my account</h3>
 
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+<div class="d-flex align-items-end w-100 justify-content-between">
+  <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, :class => "btn btn-danger btn-sm px-3 mt-2" %></div>
+  <%= link_to "Back", :back, :class => "btn btn-outline-dark px-3" %>
+</div>
 
-<%= link_to "Back", :back %>

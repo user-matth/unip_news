@@ -4,6 +4,6 @@
 <p><%= @article.body %></p>
 
 <%= link_to 'Voltar', root_path, :class => "btn btn-sm btn-dark px-3" %>
-<%= link_to 'Editar', edit_article_path(@article), :class => "btn btn-sm btn-outline-dark px-3" %>
+<%= link_to 'Editar', edit_article_path(@article), class: "btn btn-sm btn-outline-dark px-3" if policy(@article).update? %>
 
-<% button_to 'Excluir', article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, method: :delete %> 
+<% button_to 'Excluir', article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger px-3" if policy(@article).destroy? %> 

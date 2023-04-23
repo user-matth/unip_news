@@ -4,7 +4,8 @@
 <header class="blog-header lh-1 py-3 container">
   <div class="row flex-nowrap justify-content-between align-items-center">
     <div class="col-4 pt-1">
-      <%= link_to "Categorias", categories_path, :class => "link-dark serif text-decoration-none fw-bold" %>
+      <%= link_to "Categorias", 
+      categories_path, class: "link-dark serif text-decoration-none fw-bold" if policy(:category).index? %>
     </div>
     <div class="col-4 text-center">
       <a href="/" class="text-decoration-none">

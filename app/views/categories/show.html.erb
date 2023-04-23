@@ -1,0 +1,24 @@
+
+<div class="row">
+  <div class="col-9 border-end">
+    <p class="mb-0">
+      <strong>Name</strong>
+    </p>
+    <h2 class="serif fw-bold"><%= @category.name %></h2>
+  </div>
+  <div class="col-3">
+    <div class="d-flex flex-column">
+    <div class="row">
+      <div class="col-6">
+        <%= link_to "Edit", edit_category_path(@category), :class => "btn btn-dark btn-sm px-3 w-100" %>
+      </div>
+      <div class="col-6 ps-0">
+        <%= link_to "Back", categories_path, :class => "btn btn-outline-dark btn-sm px-3 w-100" %>
+      </div>
+      <div class="col-12 mt-2">
+        <%= button_to "Destroy this category", @category, method: :delete, :class => "btn btn-danger btn-sm px-3 w-100" %>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

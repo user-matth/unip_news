@@ -1,0 +1,9 @@
+<article class="blog-post border-bottom py-3">
+    <h2 class="blog-post-title serif fw-bold mb-1"><%= article.title %></h2>
+    <p class="blog-post-meta"><%= day_time(article.created_at) %> by <a href="/"><%= article.user.email %></a></p>
+
+    <p><%= truncate(article.body, length: 150) %></p>
+
+    <p><%= link_to 'Read more...', article %></p>
+
+</article>

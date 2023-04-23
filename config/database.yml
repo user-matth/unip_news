@@ -1,0 +1,19 @@
+# PostgreSQL. Versions 9.3 and up are supported.
+#
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 4 } %>
+  url: <%= ENV.fetch('DATABASE_URL') %>
+
+test:
+  <<: *default
+
+development:
+  <<: *default
+
+homolog:
+  <<: *default
+
+production:
+  <<: *default

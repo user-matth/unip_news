@@ -1,0 +1,9 @@
+<div class="p-4 p-md-5 mb-4 rounded text-white highlight">
+    <div class="highlight-overlay">
+    </div>
+    <div class="col-md-6 px-0 ">
+        <h1 class="display-4 serif fw-semibold"><%= article.title %></h1>
+        <p class="lead my-3"><%= truncate(article.body, length: 100) %></p>
+        <%= link_to 'Continue reading...', article, :class=>"text-10 fw-bold btn btn-light px-3 mb-0" %>
+    </div>
+</div>

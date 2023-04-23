@@ -1,5 +1,5 @@
 <h1 class="serif fw-semibold"><%= @article.title %></h1>
-<p class="text-11"><%= day_time(@article.created_at) %> by <%= @article.user.email %></p>
+<p class="text-11"><%= render 'article_detail', article: @article %></p>
 
 <p><%= @article.body %></p>
 

@@ -8,10 +8,12 @@
 
 <div class="row g-5">
     <div class="col-md-8">
-        <h3 class="pb-4 mb-4 fst-italic border-bottom serif">
-            Últimas Notícias
-        </h3>
-        <%= link_to "Novo Artigo", new_article_path, :class => 'btn btn-primary btn-sm px-3' if user_signed_in? %>
+        <div class="d-flex justify-content-between align-items-center">
+            <h3 class="pb-4 mb-4 border-bottom serif">
+                Últimas Notícias
+            </h3>
+            <%= link_to "Novo Artigo", new_article_path, :class => 'btn btn-outline-dark rounded-0 btn-sm px-3' if user_signed_in? %>
+        </div>
         <%= render @articles %>
         <%= render 'pagination' %>
     </div>
